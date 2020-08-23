@@ -13,7 +13,7 @@ function calcCanvasGlobals() {
 }
 
 function setCanvasGlobals() {
-	canvasEl = document.getElementById('myCanvas');
+	canvasEl = document.getElementById('simulator1');
 	canvasCtx = canvasEl.getContext('2d');
 
 	calcCanvasGlobals();
@@ -107,8 +107,8 @@ function drawOuterBoxes() {
 	canvasCtx.strokeRect(canvasBox.topLeft + canvasDim.x * 0.4, canvasBox.topRight, canvasBox.width, canvasBox.length);
 
 	if (intervalFdOne == 0) {
-		intervalFdOne = window.setInterval(fillBoxOne, 500);
-		intervalFdTwo = window.setInterval(fillBoxTwo, 250);
+		intervalFdOne = window.setInterval(fillBoxOne, 40);
+		intervalFdTwo = window.setInterval(fillBoxTwo, 20);
 	}
 }
 

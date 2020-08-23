@@ -5,11 +5,18 @@
 		<script src="./script.js"></script>
 	</head>
 	<body onload="onLoadCb()" onresize="onEventCb()">
-		<p>
-			<!-- TODO: Insert paragraph here explaining the game -->
-		</p>
 		<div class="content">
-			<canvas id="myCanvas"></canvas>
+			<h2>Matching Pennies</h2>
+			<p>
+				Let's play a game. You and your opponent (the computer) have coins, and the two of you will flip your coins at the same time. You win a point if both coins land on the same side (both coins could land Heads, for example). Your opponent wins otherwise.
+			</p>
+			<p>
+				Both you and your opponent are allowed to pick the bias of your coin. For the first game, your opponent picks a bias first. <i>You can see the bias of your opponent's coin before you make your move, so pick your bias wisely.</i>
+			</p>
+			<p>
+				After you pick your bias, our simulator will run a 100 coin tosses, and will output your score at the end.
+			</p>
+			<canvas id="simulator1"></canvas>
 			<!-- TODO: Implement interactive elements here -->
 		</div>
 	</body>
