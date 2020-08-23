@@ -1,0 +1,34 @@
+body {
+	font-size: 1.3em; /* Random value */
+}
+
+div.content {
+	width: 1280px;
+	margin: auto;
+}
+
+@media screen and (max-width: 1600px) {
+	div.content {
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	div.content {
+		width: 98%;
+	}
+}
+
+canvas {
+	display: block;
+	margin: auto;
+	width: 450px;
+	height: 450px;
+}
+
+@media screen and (max-width: 705px) {
+	canvas {
+		width: 85vw;
+		height: 85vw;
+	}
+}
