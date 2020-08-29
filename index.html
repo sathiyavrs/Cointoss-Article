@@ -16,8 +16,19 @@
 			<p>
 				After you pick your bias, our simulator will run a 100 coin tosses, and will output your score at the end.
 			</p>
-			<canvas id="simulator1"></canvas>
-			<!-- TODO: Implement interactive elements here -->
+			<div class="canvas-container">
+				<canvas id="simulator1"></canvas>
+				<div style="text-align: center;">
+					<input type="button" value="Reset" />
+					<input type="button" value="Start" />
+					<input type="button" value="Stop" />
+				</div>
+				<div style="text-align: center;">
+					<input class="slider" id="sim1slider" type="range" min="0" max="1" value="0.9" step="0.01">
+						<label for="sim1slider" id="sim1slider_label">Your probability: 0.9</label>
+					</input>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

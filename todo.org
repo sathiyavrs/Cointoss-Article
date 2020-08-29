@@ -1,0 +1,10 @@
+* TODO Design code structure that must allow multiple canvases to operate independently
+** Essentially, it should be easy to insert a canvas in to the codebase
+** All canvas resizing operations must be taken care of smoothly
+** Right now, I'll set all canvases to  have the same dimensions
+*** They may have a different set of buttons under them, though
+* Canvas One
+** TODO Implement callbacks for the probability slider
+** TODO Render the entire canvas
+* Bugs
+** FIXME Fix canvas resizing logic for Firefox, where screen.width == window.innerWidth

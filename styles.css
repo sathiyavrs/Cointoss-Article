@@ -7,6 +7,20 @@ div.content {
 	margin: auto;
 }
 
+div.canvas-container {
+	width: 450px;
+	margin: auto;
+}
+
+input {
+	margin: 0.5%;
+	margin-top: 10px;
+}
+
+input.slider {
+	width: 100%
+}
+
 @media screen and (max-width: 1600px) {
 	div.content {
 		width: 85%;
@@ -22,13 +36,17 @@ div.content {
 canvas {
 	display: block;
 	margin: auto;
-	width: 450px;
-	height: 450px;
+	width: 100%;
+	height: 150px; /* One third the width */
+	border: green solid 1px;
 }
 
 @media screen and (max-width: 705px) {
+	div.canvas-container {
+		width: 84vw;
+	}
+
 	canvas {
-		width: 85vw;
-		height: 85vw;
+		height: 28vw;
 	}
 }

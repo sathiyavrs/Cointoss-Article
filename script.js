@@ -37,12 +37,13 @@ function onEventCb() {
 	setCanvasValues();
 }
 
+// FIXME: Doesn't work in Firefox, cause screen.width == window.innerWidth in FF.
 function resizeCanvas() {
 	var canvasDimValue = window.devicePixelRatio * canvasEl.clientWidth;
 
 	if (canvasEl.width != canvasDimValue) {
 		canvasEl.width = canvasDimValue;
-		canvasEl.height = canvasDimValue;
+		canvasEl.height = canvasDimValue / 3;
 
 		calcCanvasGlobals();
 	}
@@ -54,67 +55,12 @@ function initCtx() {
 	}
 
 	canvasCtx.lineWidth = 2;
-	canvasCtx.strokeStyle = "#ff0000"; // Pure white.
+	canvasCtx.strokeStyle = "#ff0000";
 	canvasCtx.fillStyle = "#ff0000";
-}
-
-function getBallPos(ballCount) {
-	// This uses ballOneCount
-	var ballPos = {
-		x: 0,
-		y: 0
-	};
-
-	// four canvasBoxes in each bigcanvasBox
-	ballPos.y = parseInt(ballCount / 4);
-	ballPos.x = (ballCount % 4) * 2;
-	if (ballPos.y % 2 == 1) {
-		ballPos.x += 1;
-	}
-
-	return ballPos;
-}
-
-// TODO: Combine `fillBoxOne` and `fillBoxTwo` functions into one `fillBox` function
-function fillBoxOne() {
-	var ballSize = canvasBox.width * 0.125; // Try to fill four canvasBoxes in each area.
-	var ballPos = getBallPos(ballOneCount);
-
-	if (ballPos.y * ballSize + ballSize >= canvasBox.length) {
-		window.clearInterval(intervalFdOne);
-		return;
-	}
-
-	canvasCtx.fillRect(canvasBox.topLeft + ballPos.x * ballSize, canvasBox.topRight + ballPos.y * ballSize, ballSize, ballSize);
-	ballOneCount = ballOneCount + 1;
-}
-
-function fillBoxTwo() {
-	var ballSize = canvasBox.width * 0.125; // Try to fill four canvasBoxes in each area.
-	var ballPos = getBallPos(ballTwoCount);
-
-	if (ballPos.y * ballSize + ballSize >= canvasBox.length) {
-		window.clearInterval(intervalFdTwo);
-		return;
-	}
-
-	canvasCtx.fillRect(canvasBox.topLeft + canvasDim.x * 0.4 + ballPos.x * ballSize, canvasBox.topRight + ballPos.y * ballSize, ballSize, ballSize);
-	ballTwoCount = ballTwoCount + 1;
-}
-
-function drawOuterBoxes() {
-	canvasCtx.strokeRect(canvasBox.topLeft, canvasBox.topRight, canvasBox.width, canvasBox.length);
-	canvasCtx.strokeRect(canvasBox.topLeft + canvasDim.x * 0.4, canvasBox.topRight, canvasBox.width, canvasBox.length);
-
-	if (intervalFdOne == 0) {
-		intervalFdOne = window.setInterval(fillBoxOne, 40);
-		intervalFdTwo = window.setInterval(fillBoxTwo, 20);
-	}
 }
 
 function canvasMain() {
 	initCtx();
-	drawOuterBoxes();
 }
 
 function setCanvasValues() {
