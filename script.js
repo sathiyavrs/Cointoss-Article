@@ -38,7 +38,7 @@ function onEventCb() {
 }
 
 function resizeCanvas() {
-	var canvasDimValue = (screen.width * canvasEl.clientWidth) / window.innerWidth;
+	var canvasDimValue = window.devicePixelRatio * canvasEl.clientWidth;
 
 	if (canvasEl.width != canvasDimValue) {
 		canvasEl.width = canvasDimValue;
